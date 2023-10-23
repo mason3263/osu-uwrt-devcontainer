@@ -13,6 +13,8 @@ echo "Importing repositories"
 vcs import < ~/scripts/install_dev/riptide.repos . --recursive
 vcs pull
 
+touch ~/osu-uwrt/development/titan_firmware/COLCON_IGNORE
+
 python3 ~/scripts/install_dev/package_disable.py zed
 python3 ~/scripts/install_dev/package_disable.py tensor_detector
 

@@ -3,6 +3,7 @@
 export ROS_DISTRO="humble"
 
 sudo apt update
+sudo apt upgrade -y
 sudo apt install python3-pip --yes
 python3 -m pip install --upgrade pip
 sudo python3 -m pip install vcstool
