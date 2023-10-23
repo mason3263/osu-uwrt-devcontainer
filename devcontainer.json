@@ -5,7 +5,9 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "git.erwine.dev/merwine/osu-uwrt:dev",
 
-	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}],
+	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"},
+				{"type": "bind", "source": "${localEnv:HOME}/Qt", "target": "/home/vscode/Qt"},
+				{"type": "bind", "source": "${localEnv:HOME}/.qt-license", "target": "/home/vscode/.qt-license"}],
 
 	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}"},
 
