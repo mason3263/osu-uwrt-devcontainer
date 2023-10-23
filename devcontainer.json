@@ -3,9 +3,9 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "merwine/osu-uwrt:dev",
+	"image": "git.erwine.dev/merwine/osu-uwrt:dev",
 
-	"mounts": [{ "type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}],
+	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}],
 
 	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}"},
 
