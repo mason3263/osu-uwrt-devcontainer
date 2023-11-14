@@ -3,7 +3,7 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "git.erwine.dev/merwine/osu-uwrt:dev",
+	"image": "merwine/osu-uwrt:dev",
 
 	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}],
 
@@ -12,7 +12,17 @@
 	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/home/vscode/osu-uwrt",
 	"workspaceFolder": "/home/vscode/osu-uwrt",
 
-	"postCreateCommand": "~/scripts/entrypoint.bash"
+	"postCreateCommand": "~/scripts/entrypoint.bash",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools-extension-pack",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ms-iot.vscode-ros"
+			]
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
