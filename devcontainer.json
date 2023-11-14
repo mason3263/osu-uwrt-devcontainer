@@ -12,7 +12,7 @@
 	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/home/vscode/osu-uwrt",
 	"workspaceFolder": "/home/vscode/osu-uwrt",
 
-	"postCreateCommand": "~/scripts/entrypoint.bash",
+	"postCreateCommand": "/home/vscode/scripts/entrypoint.bash",
 	"customizations": {
 		"vscode": {
 			"extensions": [
