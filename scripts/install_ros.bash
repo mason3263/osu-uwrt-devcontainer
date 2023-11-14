@@ -7,6 +7,7 @@ sudo apt upgrade -y
 sudo apt install python3-pip --yes
 python3 -m pip install --upgrade pip
 sudo python3 -m pip install vcstool
+sudo python3 -m pip install transforms3d
 
 # add ros key to keyring
 sudo apt update && sudo apt install curl gnupg lsb-release -y
