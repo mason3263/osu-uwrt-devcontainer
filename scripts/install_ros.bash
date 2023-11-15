@@ -26,3 +26,5 @@ sudo apt install python3-rosdep python3-colcon-common-extensions python3-colcon-
 sudo rosdep init
 rosdep update
 
+echo "Downloading Pico utils"
+sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential

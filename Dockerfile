@@ -5,17 +5,12 @@ WORKDIR /home/vscode/
 
 
 COPY ./scripts ./scripts
+COPY ./vscode ./vscode
 
 RUN ~/scripts/install_ros.bash
-RUN ~/scripts/install_dev/install_dev.bash
 
 USER root
 RUN /home/vscode/scripts/hardware/add_rule.bash
 
 USER vscode
 RUN ~/scripts/setup_bashrc.bash
-
-COPY ./.vscode ~/.vscode
-
-RUN mv ~/osu-uwrt ~/osu-uwrt-template
-RUN mkdir ~/osu-uwrt
