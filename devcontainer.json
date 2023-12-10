@@ -5,7 +5,9 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "merwine/osu-uwrt:dev",
 
-	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}],
+	"mounts": [{"type": "bind", "source": "/tmp/.X11-unix/", "target": "/tmp/.X11-unix/"}, 
+				{"type": "bind", "source": "${localEnv:HOME}/.ssh", "target": "/home/vscode/.ssh"}, 
+				{"type": "bind", "source": "${localEnv:HOME}/.gitconfig", "target": "/home/vscode/.gitconfig"}],
 
 	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}"},
 
