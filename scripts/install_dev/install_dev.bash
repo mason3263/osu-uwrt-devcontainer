@@ -2,6 +2,8 @@
 
 export ROS_DISTRO="humble"
 
+sudo apt update
+
 # make all the directories
 mkdir -p ~/osu-uwrt/development
 cd ~/osu-uwrt/development
