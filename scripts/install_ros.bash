@@ -28,3 +28,6 @@ rosdep update
 
 echo "Downloading Pico utils"
 sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
+
+# install vision msgs
+sudo apt install ros-humble-vision-msgs -y

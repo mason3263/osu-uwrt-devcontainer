@@ -26,9 +26,6 @@ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y -r
 source /opt/ros/$ROS_DISTRO/setup.bash
 colcon build
 
-# install vision msgs
-sudo apt install ros-humble-vision-msgs -y
-
 # build development software (this should pass)
 echo "Building riptide software"
 cd ~/osu-uwrt/development/software
