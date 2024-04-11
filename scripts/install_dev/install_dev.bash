@@ -26,6 +26,9 @@ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y -r
 source /opt/ros/$ROS_DISTRO/setup.bash
 colcon build
 
+# pico utils
+sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
+
 # build development software (this should pass)
 echo "Building riptide software"
 cd ~/osu-uwrt/development/software
