@@ -9,7 +9,11 @@
 				{"type": "bind", "source": "${localEnv:HOME}/.ssh", "target": "/home/vscode/.ssh"}, 
 				{"type": "bind", "source": "${localEnv:HOME}/.gitconfig", "target": "/home/vscode/.gitconfig"}],
 
-	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}"},
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
+		"ROS_DOMAIN_ID": "42"
+	},
 
 	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/home/vscode/osu-uwrt",
 	"workspaceFolder": "/home/vscode/osu-uwrt",
@@ -18,10 +22,12 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.cpptools-extension-pack",
-				"VisualStudioExptTeam.vscodeintellicode",
-				"VisualStudioExptTeam.intellicode-api-usage-examples",
-				"ms-iot.vscode-ros"
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "donjayamanne.python-extension-pack",
+                "eamodio.gitlens",
+                "ms-iot.vscode-ros"
 			]
 		}
 	}
