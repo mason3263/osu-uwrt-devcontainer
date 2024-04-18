@@ -5,19 +5,15 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "merwine/osu-uwrt:dev",
 
-	"mounts": [ {"type": "bind", "source": "/dev/shm", "target": "/dev/shm"}],
-
 	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}",
-		"FASTRTPS_DEFAULT_PROFILES_FILE": "/home/vscode/scripts/fastrtps.xml"
+		"DISPLAY": "${localEnv:DISPLAY}"
 	},
 
-	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/home/vscode/osu-uwrt",
-	"workspaceFolder": "/home/vscode/osu-uwrt",
+	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/root/osu-uwrt",
+	"workspaceFolder": "/root/osu-uwrt",
 
-	"runArgs": [ "--net=host" ],
+	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
-	"postCreateCommand": "/home/vscode/scripts/entrypoint.bash",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -29,7 +25,7 @@
                 "ms-iot.vscode-ros"
 			]
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -44,5 +40,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
