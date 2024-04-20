@@ -5,7 +5,7 @@ USER 0:0
 COPY scripts /scripts
 
 RUN apt update && apt upgrade -y
-RUN apt install -y wget
+RUN apt install -y wget ros-humble-desktop
 
 RUN mkdir -p /osu-uwrt/
 
