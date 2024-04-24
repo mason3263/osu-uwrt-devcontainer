@@ -21,6 +21,7 @@ RUN rosdep install --from-paths /osu-uwrt/software/src --ignore-src -r -y
 
 RUN echo "CC=\"/usr/bin/clang\"" >> ~/.bashrc
 RUN echo "CXX=\"/usr/bin/clang++\"" >> ~/.bashrc
+RUN echo "alias src=\"source ~/.bashrc\"" >> ~/.bashrc
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN echo "source /root/osu-uwrt/dependencies/install/setup.bash" >> ~/.bashrc
