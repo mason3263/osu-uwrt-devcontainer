@@ -1,7 +1,5 @@
 #/bin/bash
 
-echo "VISUAL=\"code --wait\"" >> ~/.bashrc
-
 if [ ! -d ~/osu-uwrt/software ]; then
     mkdir ~/osu-uwrt
     mv /scripts/rosdep.bash /root/osu-uwrt

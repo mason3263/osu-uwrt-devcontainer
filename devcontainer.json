@@ -6,13 +6,16 @@
 	"image": "merwine/osu-uwrt:dev",
 
 	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}"
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"VISUAL": "code --wait",
+		"EDITOR": "code --wait",
+		"GIT_EDITOR": "code --wait"
 	},
 
 	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/root/osu-uwrt",
 	"workspaceFolder": "/root/osu-uwrt",
 
-        "initializeCommand": "docker pull merwine/osu-uwrt:dev",
+    "initializeCommand": "docker pull merwine/osu-uwrt:dev",
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
 	"customizations": {
