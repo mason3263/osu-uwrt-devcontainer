@@ -5,10 +5,7 @@ USER 0:0
 COPY scripts /scripts
 
 RUN apt update && apt upgrade -y
-RUN apt install -y wget ros-humble-desktop clang
-
-RUN echo CC=\"/usr/bin/clang\" >> /etc/environment
-RUN echo CXX=\"/usr/bin/clang++\" >> /etc/environment 
+RUN apt install -y wget ros-humble-desktop clang nano vim
 
 RUN mkdir -p /osu-uwrt/
 
@@ -21,6 +18,9 @@ RUN touch /osu-uwrt/software/src/riptide_perception/tensor_detector/COLCON_IGNOR
 RUN rosdep update
 RUN rosdep install --from-paths /osu-uwrt/dependencies/src --ignore-src -r -y
 RUN rosdep install --from-paths /osu-uwrt/software/src --ignore-src -r -y
+
+RUN echo "CC=\"/usr/bin/clang\"" >> ~/.bashrc
+RUN echo "CXX=\"/usr/bin/clang++\"" >> ~/.bashrc
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN echo "source /root/osu-uwrt/dependencies/install/setup.bash" >> ~/.bashrc

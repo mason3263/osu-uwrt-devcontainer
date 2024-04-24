@@ -12,6 +12,7 @@
 	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/root/osu-uwrt",
 	"workspaceFolder": "/root/osu-uwrt",
 
+        "initializeCommand": "docker pull merwine/osu-uwrt:dev",
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
 	"customizations": {
