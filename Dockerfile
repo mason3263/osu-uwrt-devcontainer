@@ -5,7 +5,10 @@ USER 0:0
 COPY scripts /scripts
 
 RUN apt update && apt upgrade -y
-RUN apt install -y wget ros-humble-desktop
+RUN apt install -y wget ros-humble-desktop clang
+
+RUN echo CC=\"/usr/bin/clang\" >> /etc/environment
+RUN echo CXX=\"/usr/bin/clang++\" >> /etc/environment 
 
 RUN mkdir -p /osu-uwrt/
 
