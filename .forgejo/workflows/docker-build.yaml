@@ -8,6 +8,8 @@ on:
 jobs:
   docker:
     runs-on: docker
+    container:
+      image: docker
     steps:
       -
         name: Checkout
