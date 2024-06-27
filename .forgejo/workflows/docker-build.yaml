@@ -9,7 +9,7 @@ jobs:
   docker:
     runs-on: docker
     container:
-      image: docker
+      image: catthehacker/ubuntu:act-latest
     steps:
       -
         name: Checkout
