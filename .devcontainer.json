@@ -3,7 +3,7 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "merwine/osu-uwrt:dev",
+	"image": "mason/osu-uwrt:dev",
 
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",
@@ -12,10 +12,10 @@
 		"GIT_EDITOR": "code --wait"
 	},
 
-	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/root/osu-uwrt",
+	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/root/osu-uwrt",
 	"workspaceFolder": "/root/osu-uwrt",
 
-    "initializeCommand": "docker pull merwine/osu-uwrt:dev",
+    "initializeCommand": "docker pull git.erwine.dev/mason/osu-uwrt:dev",
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
 	"customizations": {
