@@ -10,6 +10,8 @@ jobs:
     runs-on: docker
     container:
       image: catthehacker/ubuntu:act-latest
+      environment:
+        DOCKER_HOST: tcp://docker-in-docker:2375
     steps:
       -
         name: Checkout
