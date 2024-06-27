@@ -12,6 +12,8 @@ jobs:
       image: catthehacker/ubuntu:act-latest
       env:
         DOCKER_HOST: tcp://docker-in-docker:2375
+      links:
+        - docker-in-docker
     steps:
       -
         name: Checkout
