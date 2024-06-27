@@ -12,8 +12,7 @@ jobs:
       image: catthehacker/ubuntu:act-latest
       env:
         DOCKER_HOST: tcp://docker-in-docker:2375
-      networks:
-        - dind
+      options: "--network dind"
     steps:
       -
         name: Checkout
