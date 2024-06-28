@@ -1,0 +1,20 @@
+steps:
+  build-and-publish:
+    image: woodpeckerci/plugin-docker-buildx
+    secrets: [ git-api-key, ssh-key ]
+    environment:
+      DOCKER_HOST: ssh://docker-user@docker.lan
+    settings:
+      repo: ${CI_REPO}
+      tag: devcontainer
+      registry: git.erwine.dev
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: git-api-key
+    commands:
+     - mkdir ~/.ssh
+     - echo -n $ssh-key > ~/.ssh/id_rsa
+     - /usr/local/bin/dockerd-entrypoint.sh plugin-docker-buildx
+    when:
+      branch: ${CI_REPO_DEFAULT_BRANCH}
+      event: push
