@@ -7,7 +7,7 @@ steps:
         valueFrom:
           fieldRef:
             fieldPath: status.hostIP
-      DOCKER_HOST: tcp://192.168.1.7:2375
+      DOCKER_HOST: tcp://$NODE_IP:2375
     settings:
       repo: ${CI_REPO}
       tag: devcontainer
