@@ -2,8 +2,12 @@ steps:
   build-and-publish:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [ git-api-key ]
-    #environment:
-      #DOCKER_HOST: tcp://docker.lan:2375
+    environment:
+      NODE_IP:
+        valueFrom:
+          fieldRef:
+            fieldPath: status.hostIP
+      DOCKER_HOST: tcp://$(NODE_IP):2375
     settings:
       repo: ${CI_REPO}
       tag: devcontainer
