@@ -13,4 +13,6 @@ steps:
         from_secret: git-api-key
     when:
       branch: ${CI_REPO_DEFAULT_BRANCH}
-      event: push
+      event:
+        - push
+        - manual
