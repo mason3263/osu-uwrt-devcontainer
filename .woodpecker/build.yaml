@@ -4,10 +4,9 @@ steps:
     secrets: [ git-api-key ]
     settings:
       buildkit_driveropt: "network=host"
-      repo: git.erwine.dev/${CI_REPO}
+      repo: git.erwine.dev/mason/osu-uwrt-devcontainer
       tag: latest
       registry: git.erwine.dev
-      cache_images: git.erwine.dev/mason/osu-uwrt-devcontainer:latest
       username: ${CI_REPO_OWNER}
       password:
         from_secret: git-api-key
