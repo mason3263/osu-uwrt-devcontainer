@@ -6,7 +6,7 @@ steps:
       buildkit_driveropt: "network=host"
       repo: ${CI_REPO}
       tag: latest
-      registry: ${CI_FORGE_URL}
+      registry: https://git.erwine.dev
       cache_images: git.erwine.dev/mason/osu-uwrt-devcontainer:latest
       username: ${CI_REPO_OWNER}
       password:
