@@ -4,7 +4,7 @@ steps:
     secrets: [ docker-api-key ]
     settings:
       buildkit_driveropt: "network=host"
-      repo: mason/osu-uwrt-devcontainer
+      repo: merwine/osu-uwrt-devcontainer
       tag: latest
       username: ${CI_REPO_OWNER}
       password:
