@@ -1,6 +1,6 @@
 FROM ros:humble
 
-USER 0:0
+USER root
 
 COPY scripts /scripts
 
