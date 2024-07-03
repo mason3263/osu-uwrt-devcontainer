@@ -33,4 +33,3 @@ colcon build --packages-select riptide_meshes
 source /workspaces/install/setup.bash
 colcon build
 
-sleep inf

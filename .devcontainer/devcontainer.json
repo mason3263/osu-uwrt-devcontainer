@@ -3,7 +3,7 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "merwine/osu-uwrt-devcontainer",
+	"image": "git.erwine.dev/mason/osu-uwrt-devcontainer",
 
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",
@@ -15,7 +15,11 @@
 	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
 	"workspaceFolder": "/workspaces/osu-uwrt",
 
-	"postCreateCommand": "sleep infinity",
+	"postCreateCommand": "bash /scripts/entrypoint.bash",
+
+        "features": {
+          "ghcr.io/devcontainers-contrib/features/vscode-server:1": {}
+        },
 
 	"customizations": {
 		"vscode": {
