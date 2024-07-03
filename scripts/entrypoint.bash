@@ -1,5 +1,6 @@
 #/bin/bash
 
+mkdir -p /workspaces/osu-uwrt
 vcs import < /riptide.repos /workspaces/osu-uwrt --recursive
 
 if ! [ -f /workspaces/ignored ]; then
