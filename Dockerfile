@@ -27,4 +27,4 @@ RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN echo "source /workspaces/osu-uwrt/dependencies/install/setup.bash" >> ~/.bashrc
 RUN echo "source /workspaces/osu-uwrt/software/install/setup.bash" >> ~/.bashrc
 
-CMD ["bash", "/scripts/entrypoint.bash"]
+CMD ["sleep", "infinity"]

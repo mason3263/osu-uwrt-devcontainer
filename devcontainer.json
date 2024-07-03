@@ -15,7 +15,7 @@
 	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
 	"workspaceFolder": "/workspaces/osu-uwrt",
 
-	"postCreateCommand": "bash /scripts/entrypoint.bash",
+	"postCreateCommand": "sleep infinity",
 
 	"customizations": {
 		"vscode": {
