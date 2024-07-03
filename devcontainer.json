@@ -12,10 +12,9 @@
 		"GIT_EDITOR": "code --wait"
 	},
 
-	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/root/osu-uwrt",
-	"workspaceFolder": "/root/osu-uwrt",
+	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
+	"workspaceFolder": "/workspaces/osu-uwrt",
 
-    "initializeCommand": "docker pull git.erwine.dev/mason/osu-uwrt:dev",
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
 	"customizations": {
