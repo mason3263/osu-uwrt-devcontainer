@@ -11,7 +11,7 @@ RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o 
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 RUN apt update
-RUN apt install ros-humble-base ros-dev-tools
+RUN apt install ros-humble-ros-base ros-dev-tools -y
 
 # Setup script to install ros-humble-desktop seperatly
 
