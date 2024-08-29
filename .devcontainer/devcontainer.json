@@ -15,6 +15,11 @@
 	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
 	"workspaceFolder": "/workspaces/osu-uwrt",
 
+	"mounts": [
+		"source=/tmp/.X11-unix/,target=/tmp/.X11-unix/,type=bind",
+		"source=${localWorkspaceFolder},target=/workspaces/osu-uwrt-devcontainer,type=bind"
+	],
+
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
 
         "features": {
@@ -48,5 +53,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }

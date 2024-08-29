@@ -13,13 +13,15 @@ fi
 
 if ! [ -f /init ]; then
 
-  touch /init
-
   rosdep update
   rosdep install --from-paths /workspaces/osu-uwrt/dependencies/src --ignore-src -r -y
   rosdep install --from-paths /workspaces/osu-uwrt/software/src --ignore-src -r -y
 
+  cp -r /scripts/user-scripts/* /workspaces/osu-uwrt
+
   ln -s /workspaces/osu-uwrt ~/osu-uwrt
+
+  touch /init
 
 fi
 
