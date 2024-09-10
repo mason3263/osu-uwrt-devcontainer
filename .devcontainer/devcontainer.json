@@ -9,7 +9,9 @@
 		"DISPLAY": "${localEnv:DISPLAY}",
 		"VISUAL": "code --wait",
 		"EDITOR": "code --wait",
-		"GIT_EDITOR": "code --wait"
+		"GIT_EDITOR": "code --wait",
+		"CC": "/usr/bin/clang",
+		"CXX": "/usr/bin/clang++"
 	},
 
 	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
