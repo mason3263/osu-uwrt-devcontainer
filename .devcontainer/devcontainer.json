@@ -3,20 +3,34 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "merwine/osu-uwrt:dev",
+	"image": "git.erwine.dev/mason/osu-uwrt-devcontainer",
 
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",
 		"VISUAL": "code --wait",
 		"EDITOR": "code --wait",
-		"GIT_EDITOR": "code --wait"
+		"GIT_EDITOR": "code --wait",
+		"CC": "/usr/bin/clang",
+		"CXX": "/usr/bin/clang++"
 	},
 
-	"workspaceMount": "type=bind,source=${localEnv:HOME}/osu-uwrt,target=/root/osu-uwrt",
-	"workspaceFolder": "/root/osu-uwrt",
+	"workspaceMount": "type=volume,source=osu-uwrt-data,target=/workspaces/osu-uwrt",
+	"workspaceFolder": "/workspaces/osu-uwrt",
 
-    "initializeCommand": "docker pull merwine/osu-uwrt:dev",
+	"mounts": [
+		"source=/tmp,target=/tmp,type=bind",
+		"source=${localWorkspaceFolder},target=/workspaces/osu-uwrt-devcontainer,type=bind",
+		"source=/dev,target=/dev,type=bind"
+	],
+
+	"privileged": true,
+
+
 	"postCreateCommand": "bash /scripts/entrypoint.bash",
+
+        //"features": {
+        //  "ghcr.io/devcontainers-contrib/features/vscode-server:1": {}
+        //},
 
 	"customizations": {
 		"vscode": {
@@ -27,7 +41,8 @@
 				"donjayamanne.python-extension-pack",
 				"eamodio.gitlens",
 				"ms-iot.vscode-ros",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"llvm-vs-code-extensions.vscode-clangd"
 			]
 		}
 	},

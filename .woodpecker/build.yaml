@@ -1,0 +1,17 @@
+steps:
+  build-and-publish:
+    image: woodpeckerci/plugin-docker-buildx
+    secrets: [ git-api-key ]
+    settings:
+      repo: git.erwine.dev/mason/osu-uwrt-devcontainer
+      tag: latest
+      registry: git.erwine.dev
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: git-api-key
+    when:
+      branch: ${CI_REPO_DEFAULT_BRANCH}
+      event:
+        - push
+        - cron
+        - manual
