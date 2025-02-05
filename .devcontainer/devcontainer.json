@@ -3,7 +3,7 @@
 {
 	"name": "OSU-UWRT Dev",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mason/osu-uwrt-devcontainer",
+	"image": "merwine/osu-uwrt-devcontainer",
 
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",
