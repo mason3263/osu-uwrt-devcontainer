@@ -3,6 +3,9 @@
 mkdir -p /workspaces/osu-uwrt
 vcs import < /riptide.repos /workspaces/osu-uwrt --recursive
 
+apt update
+apt upgrade -y
+
 if ! [ -f /workspaces/ignored ]; then
 
   touch /workspaces/ignored
@@ -28,11 +31,11 @@ fi
 source /opt/ros/humble/setup.bash
 
 cd /workspaces/osu-uwrt/dependencies
-colcon build
+colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 source ./install/setup.bash
 
 cd ../software/
 colcon build --packages-select riptide_meshes
 source /workspaces/install/setup.bash
-colcon build
+colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 
