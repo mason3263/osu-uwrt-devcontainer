@@ -5,7 +5,10 @@ USER root
 COPY scripts /scripts
 
 RUN apt update && apt upgrade -y
-RUN apt install -y wget clang nano vim curl libboost-all-dev
+RUN apt install -y wget clang nano vim curl libboost-all-dev software-properties-common
+
+# Install LLVM Clang
+RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
@@ -29,8 +32,8 @@ RUN wget https://raw.githubusercontent.com/osu-uwrt/riptide_setup/humble/setup_s
 #RUN rosdep install --from-paths /workspaces/osu-uwrt/dependencies/src --ignore-src -r -y
 #RUN rosdep install --from-paths /workspaces/osu-uwrt/software/src --ignore-src -r -y
 
-RUN echo "CC=\"/usr/bin/clang\"" >> ~/.bashrc
-RUN echo "CXX=\"/usr/bin/clang++\"" >> ~/.bashrc
+RUN echo "CC=\"/usr/bin/clang-18\"" >> ~/.bashrc
+RUN echo "CXX=\"/usr/bin/clang++-18\"" >> ~/.bashrc
 RUN echo "alias src=\"source ~/.bashrc\"" >> ~/.bashrc
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
