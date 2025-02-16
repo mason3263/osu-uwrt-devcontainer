@@ -6,25 +6,25 @@ vcs import < /riptide.repos /workspaces/osu-uwrt --recursive
 apt update
 apt upgrade -y
 
-if ! [ -f /workspaces/ignored ]; then
+if ! [ -f /workspaces/osu-uwrt/.ignored ]; then
 
-  touch /workspaces/ignored
+  touch /workspaces/osu-uwrt/.ignored
   touch /workspaces/osu-uwrt/dependencies/src/zed_ros2_wrapper/COLCON_IGNORE
   touch /workspaces/osu-uwrt/software/src/riptide_perception/tensor_detector/COLCON_IGNORE
 
+  cp -r /scripts/user-scripts/* /workspaces/osu-uwrt
+
 fi
 
-if ! [ -f /init ]; then
+if ! [ -f /.init ]; then
 
   rosdep update
   rosdep install --from-paths /workspaces/osu-uwrt/dependencies/src --ignore-src -r -y
   rosdep install --from-paths /workspaces/osu-uwrt/software/src --ignore-src -r -y
 
-  cp -r /scripts/user-scripts/* /workspaces/osu-uwrt
-
   ln -s /workspaces/osu-uwrt ~/osu-uwrt
 
-  touch /init
+  touch /.init
 
 fi
 
